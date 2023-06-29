@@ -1,13 +1,23 @@
-import './App.scss'
+import Root from './components/root';
+
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	RouterProvider,
+} from 'react-router-dom';
+
+const router = createBrowserRouter(createRoutesFromElements(
+	<Route path='/' element={ <Root/> }>
+	</Route>
+));
 
 function App() {
-  return (
-    <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<RouterProvider router={router}/>
+		</>
+	);
 }
-
-export default App
+ 
+export default App;
