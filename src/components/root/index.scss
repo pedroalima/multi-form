@@ -1,8 +1,21 @@
+@import '../../styles/variables.scss';
+
 #root {
-    background: rgb(240, 246, 255);
+    background: $bg-primary-color;
+    background-image: url('../../assets/images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media screen and (min-width: 1024px) {
+        background: $bg-primary-color;
+    }
 
     .row-custom {
-        background: hsl(0, 0%, 100%);
-        border-radius: 15px;
+
+        @media screen and (min-width: 1024px) {
+            background: $bg-secondary-color;
+            border-radius: 15px;
+            height: 100%;
+        }
     }
 }

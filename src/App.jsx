@@ -1,4 +1,5 @@
 import Root from './components/root';
+import UserInfo from './pages/user';
 
 import {
 	createBrowserRouter,
@@ -8,16 +9,17 @@ import {
 } from 'react-router-dom';
 
 const router = createBrowserRouter(createRoutesFromElements(
-	<Route path='/' element={ <Root/> }>
+	<Route path='/' element={<Root />}>
+		<Route path='/' element={<UserInfo />} />
 	</Route>
 ));
 
 function App() {
 	return (
 		<>
-			<RouterProvider router={router}/>
+			<RouterProvider router={router} />
 		</>
 	);
 }
- 
+
 export default App;
