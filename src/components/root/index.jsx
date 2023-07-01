@@ -1,4 +1,5 @@
 import Sidebar from '../sidebar';
+import Footer from '../footer';
 import { Outlet } from 'react-router-dom';
 
 import './index.scss'
@@ -15,6 +16,9 @@ function Root() {
 						<main className="col-12 col-md-9">
 							<Outlet />
 						</main>
+						<footer className='col-12 justify-content-between'>
+							<Footer/>
+						</footer>
 					</div>
 				</div>
 			</div>
