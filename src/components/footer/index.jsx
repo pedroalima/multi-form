@@ -13,10 +13,10 @@ function Footer() {
     }
 
     return (
-        <div className='row py-4 px-5 justify-content-between no-gutters position-custom'>
+        <div className='row py-3 px-5 justify-content-between no-gutters position-custom' id='footer'>
             <div className="col-12 d-flex justify-content-between px-md-5">
-                <button onClick={goBack} className='border-0'>Go back</button>
-                <button onClick={goForward} className='border-0'>Next Step</button>
+                <button onClick={goBack} className='border-0 bg-white font-tertiary-color weight-custom'>Go back</button>
+                <button onClick={goForward} className='border-0 rounded p-2 bg-button-color text-white weight-custom'>Next Step</button>
             </div>
         </div>
     )

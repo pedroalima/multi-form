@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 
+
 .position-custom {
     background: $bg-secondary-color;
     position: fixed;
@@ -11,4 +12,8 @@
         background: #ffffff00;
         position: relative;
     }
+}
+
+.weight-custom {
+    font-weight: 500;
 }

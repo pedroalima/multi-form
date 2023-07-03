@@ -33,9 +33,6 @@ function Sidebar() {
                         <span className='text-white font-weight-bolder text-uppercase'>Summary</span>
                     </div>
                 </NavLink>
-
-
-
             </nav>
         </aside>
     );
