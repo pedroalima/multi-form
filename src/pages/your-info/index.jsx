@@ -1,8 +1,8 @@
 import './index.scss'
 
-function UserInfo() {
+function YourInfo() {
     return (
-        <section className="bg-white p-5" id="user-info">
+        <section className="bg-white p-4 p-md-5" id="your-info">
             <div className='px-md-5'>
                 <h3>Personal info</h3>
                 <p>Please provide your name, email address, and phone number</p>
@@ -19,4 +19,4 @@ function UserInfo() {
     )
 }
 
-export default UserInfo
+export default YourInfo

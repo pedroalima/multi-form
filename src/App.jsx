@@ -1,5 +1,6 @@
 import Root from './components/root';
-import UserInfo from './pages/user';
+import YourInfo from './pages/your-info';
+import SelectPlan from './pages/select-plan';
 
 import {
 	createBrowserRouter,
@@ -10,7 +11,9 @@ import {
 
 const router = createBrowserRouter(createRoutesFromElements(
 	<Route path='/' element={<Root />}>
-		<Route path='/' element={<UserInfo />} />
+		<Route path='/' element={<YourInfo />} />
+		<Route path='/your-info' element={<YourInfo />} />
+		<Route path='/select-plan' element={<SelectPlan />} />
 	</Route>
 ));
 

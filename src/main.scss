@@ -13,14 +13,22 @@ body {
     }
 }
 
+.font-primary-color {
+    color: hsl(231, 11%, 63%);
+}
+
 .font-secondary-color {
-    color: $bg-active-color
+    color: hsl(228, 100%, 84%);
 }
 
 .font-tertiary-color {
-    color: $font-tertiary-color;
+    color: hsl(213, 96%, 18%);
 }
 
 .bg-button-color {
-    background: $bg-button-color;
+    background: hsl(213, 96%, 18%);
+}
+
+.bg-modality-color {
+    background: hsl(217, 100%, 97%);
 }
