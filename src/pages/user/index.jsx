@@ -2,10 +2,12 @@ import './index.scss'
 
 function UserInfo() {
     return (
-        <section className="bg-white p-4" id="user-info">
-            <h3>Personal info</h3>
-            <p>Please provide your name, email address, and phone number</p>
-            <form>
+        <section className="bg-white p-5" id="user-info">
+            <div className='px-md-5'>
+                <h3>Personal info</h3>
+                <p>Please provide your name, email address, and phone number</p>
+            </div>
+            <form className='px-md-5'>
                 <label htmlFor="name">Name</label>
                 <input className='w-100' id='name' type="text" placeholder='e.g. Stephen King' />
                 <label htmlFor="email">Email Address</label>

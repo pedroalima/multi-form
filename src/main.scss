@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import './styles/variables.scss';
 
 * {
     font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: $bg-primary-color;
+
+    span {
+        font-size: 14px;
+    }
+}
+
+.font-secondary-color {
+    color: $bg-active-color
 }

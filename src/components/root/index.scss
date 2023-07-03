@@ -1,13 +1,12 @@
 @import '../../styles/variables.scss';
 
 #root {
-    background: $bg-primary-color;
     background-image: url('../../assets/images/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
     background-size: contain;
 
     @media screen and (min-width: 1024px) {
-        background: $bg-primary-color;
+        background-image: none;
     }
 
     .row-custom {
