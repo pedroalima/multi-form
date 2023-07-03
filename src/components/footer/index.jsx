@@ -3,9 +3,11 @@ import './index.scss'
 
 function Footer() {
     return (
-        <div className='row justify-content-around py-3 position-custom'>
-            <Link className=''>back</Link>
-            <Link className=''>Next</Link>
+        <div className='row py-3 px-5 justify-content-around position-custom'>
+            <div className="col-12 d-flex justify-content-between col-md-10">
+                <Link className=''>Go back</Link>
+                <Link className=''>Next Step</Link>
+            </div>
         </div>
     )
 }

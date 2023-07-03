@@ -9,16 +9,17 @@ function Root() {
 		<>
 			<div className='container-fluid vh-100 p-md-5' id='root'>
 				<div className='container w-100 h-100 p-md-5'>
-					<div className='row row-custom p-md-3 no-gutters'>
+					<div className='row row-custom p-md-3 mx-md-5'>
 						<header className='col-12 col-md-3'>
 							<Sidebar />
 						</header>
 						<main className="col-12 col-md-9">
 							<Outlet />
+							<Footer />
 						</main>
-						<footer className='col-12 justify-content-between'>
+						{/* <footer className='col-12 justify-content-between'>
 							<Footer/>
-						</footer>
+						</footer> */}
 					</div>
 				</div>
 			</div>
