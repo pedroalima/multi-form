@@ -1,3 +1,17 @@
 #your-info {
     border-radius: 15px;
+    box-shadow: 0 0 100px -30px #b6b6b6;
+
+    @media screen and (min-width: 1024px) {
+        box-shadow: none;
+    }
+
+
+    h3 {
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 18px;
+    }
 }
