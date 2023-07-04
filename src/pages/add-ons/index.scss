@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+
+#add-ons {
+    border-radius: 15px;
+    box-shadow: 0 0 100px -30px rgb(182, 182, 182);
+
+    @media screen and (min-width: 1024px) {
+        box-shadow: none;
+    }
+
+    h3 {
+        font-weight: 700;
+    }
+
+    h6 {
+        font-weight: 600;
+    }
+
+    .font-size-custom {
+        font-size: 13px;
+    }
+
+    svg {
+        color: rgb(252, 252, 252);
+        border: 1px solid rgb(194, 194, 194);
+        border-radius: 3px;
+    }
+
+    input[type="checkbox"]:checked+label {
+        border: 1px solid rgb(78, 49, 182);
+        background: rgb(245, 244, 252);
+
+        svg {
+            color: rgb(71, 61, 255);
+            border: none;
+        }
+    }
+
+    .border-custom {
+        border-radius: 8px;
+    }
+
+    .width-custom {
+
+        @media screen and (min-width: 1024px) {
+            width: 30%;
+        }
+    }
+
+    .font-color-custom {
+        color: rgb(110, 71, 252);
+    }
+}
