@@ -1,15 +1,27 @@
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 
 import { BsCheckSquareFill } from 'react-icons/bs';
 
 function AddOns() {
+
+    const navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1)
+    }
+
+    const goForward = () => {
+        navigate(1)
+    }
+
     return (
-        <section className="bg-white p-4 mb-5 mb-md-0 px-md-5 pb-md-0 py-md-4" id="add-ons">
-            <div className='px-md-5'>
+        <section className="bg-white d-flex flex-column justify-content-between" id="add-ons">
+            <div>
                 <h3 className='font-tertiary-color'>Pick add-ons</h3>
                 <p className='font-primary-color'>Add-ons help enhance your gaming experience.</p>
             </div>
-            <form className='px-md-5 pt-md-3 justify-content-md-between'>
+            <form className='pt-md-2 justify-content-md-between'>
                 <input name='plan' id='service' type="checkbox" className='d-none' />
                 <label htmlFor="service" className="card flex-row align-items-center p-3 border-custom text-left">
                     <BsCheckSquareFill />
@@ -38,6 +50,10 @@ function AddOns() {
                     <span className='font-color-custom'>+$2/mo</span>
                 </label>
             </form>
+            <div className="d-flex justify-content-between p-3 px-md-0 position-custom">
+                <button onClick={goBack} className='border-0 bg-white font-primary-color weight-custom'>Go Back</button>
+                <button onClick={goForward} className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Next Step</button>
+            </div>
         </section>
     )
 }

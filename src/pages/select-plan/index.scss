@@ -3,9 +3,14 @@
 #select-plan {
     border-radius: 15px;
     box-shadow: 0 0 100px -30px #b6b6b6;
+    padding: 2rem;
 
     @media screen and (min-width: 1024px) {
         box-shadow: none;
+        width: 70%;
+        height: 100%;
+        padding: 1.5rem 0 0 0;
+        margin: 0 auto;
     }
 
     input[type="radio"]:checked+label {
@@ -14,7 +19,20 @@
     }
 
     .border-custom {
-        border-radius: 8px;
+        border-radius: 5px;
+    }
+
+    .position-custom {
+        background: $bg-secondary-color;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        @media screen and (min-width: 1024px) {
+            background: #ffffff00;
+            position: relative;
+        }
     }
 
     .width-custom {
@@ -22,6 +40,10 @@
         @media screen and (min-width: 1024px) {
             width: 30%;
         }
+    }
+
+    h3 {
+        font-weight: 700;
     }
 
     h6 {
