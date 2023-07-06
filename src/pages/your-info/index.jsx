@@ -6,7 +6,7 @@ function YourInfo() {
     const navigate = useNavigate();
 
     const goForward = () => {
-        navigate(1)
+        navigate("/select-plan")
     }
 
     return (
@@ -24,7 +24,7 @@ function YourInfo() {
                 <input className='w-100 p-1 px-2' id='phone' type="number" placeholder='e.g. +1 234 567 890' />
             </form>
             <div className="d-flex justify-content-end p-3 px-md-0 position-custom">
-                <button onClick={goForward} className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Next Step</button>
+                <button onClick={goForward} type='submit' className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Next Step</button>
             </div>
         </section>
     )

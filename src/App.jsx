@@ -3,6 +3,7 @@ import YourInfo from './pages/your-info';
 import SelectPlan from './pages/select-plan';
 import AddOns from './pages/add-ons';
 import Summary from './pages/summary';
+import Complete from './pages/complete';
 
 import {
 	createBrowserRouter,
@@ -18,6 +19,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 		<Route path='/select-plan' element={<SelectPlan />} />
 		<Route path='/add-ons' element={<AddOns />} />
 		<Route path='/summary' element={<Summary />} />
+		<Route path='/summary/complete' element={<Complete />} />
 	</Route>
 ));
 

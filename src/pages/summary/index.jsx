@@ -10,7 +10,7 @@ function Summary() {
     }
 
     const goForward = () => {
-        navigate(1)
+        navigate("/summary/complete")
     }
 
     return (
@@ -27,13 +27,13 @@ function Summary() {
                     </div>
                     <span className='font-tertiary-color font-weight-bold'>$9/mo</span>
                 </div>
-                <div className='d-flex justify-content-between align-items-center pt-3'>
-                    <div>
+                <div className='pt-3'>
+                    <div className='d-flex justify-content-between'>
                         <p className='mb-2 font-primary-color'>Online service</p>
-                        <p className='font-primary-color'>Larger storage</p>
-                    </div>
-                    <div className='d-flex flex-column'>
                         <span className='mb-2 font-tertiary-color'>+$1/mo</span>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                        <p className='font-primary-color'>Larger storage</p>
                         <span className='font-tertiary-color'>+$2/mo</span>
                     </div>
                 </div>

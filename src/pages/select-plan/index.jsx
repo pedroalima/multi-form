@@ -14,7 +14,7 @@ function SelectPlan() {
     }
 
     const goForward = () => {
-        navigate(1)
+        navigate("/add-ons")
     }
 
     return (
@@ -59,7 +59,7 @@ function SelectPlan() {
             </div>
             <div className="d-flex justify-content-between p-3 px-md-0 position-custom">
                 <button onClick={goBack} className='border-0 bg-white font-primary-color weight-custom'>Go Back</button>
-                <button onClick={goForward} className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Next Step</button>
+                <button onClick={goForward} type='submit' className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Next Step</button>
             </div>
         </section>
     )
