@@ -17,6 +17,8 @@ function YourInfo() {
     }
 
     console.log(name)
+    console.log(email)
+    console.log(phone)
 
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="your-info">
