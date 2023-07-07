@@ -6,7 +6,7 @@ function Sidebar() {
         <aside id="sidebar">
             <nav className="nav d-flex flex-md-column justify-content-center p-3" id='nav'>
                 <div className="nav-link d-flex justify-content-start align-items-start p-2">
-                    <NavLink to="/your-info" className='bg-custom rounded-circle py-2 px-3 font-weight-bold'>1</NavLink>
+                    <NavLink to="/" className='bg-custom rounded-circle py-2 px-3 font-weight-bold'>1</NavLink>
                     <div className='d-none d-md-block ml-md-4 d-md-flex flex-md-column mb-md-2'>
                         <span className='font-secondary-color text-uppercase'>Step 1</span>
                         <span className='text-white font-weight-bolder text-uppercase'>Your info</span>
