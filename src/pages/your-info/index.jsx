@@ -7,9 +7,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 
 const schema = object({
-    name: string().required("This field is required"),
-    email: string().required("This field is required"),
-    phone: string().required("This field is required"),
+    name: string()
+        .required("This field is required"),
+    email: string()
+        .required("This field is required"),
+    phone: string()
+        .required("This field is required"),
 })
 
 function YourInfo() {
