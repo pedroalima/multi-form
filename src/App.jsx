@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Root from './components/root';
 import YourInfo from './pages/your-info';
 import SelectPlan from './pages/select-plan';
@@ -15,25 +17,62 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 
-const router = createBrowserRouter(createRoutesFromElements(
-	<Route path='/' element={<Root />}>
-		<Route path='/' element={<YourInfo />} />
-		<Route path='/your-info' element={<YourInfo />} />
-		<Route path='/select-plan' element={<SelectPlan />}>
-			<Route path='/select-plan' element={<SelectPlanTerm arcadeValue={data.arcadeValorM} advancedValue={data.advanceValorM} proValue={data.proValorM} />} />
-			<Route path='/select-plan/monthly' element={<SelectPlanTerm arcadeValue={data.arcadeValorM} advancedValue={data.advanceValorM} proValue={data.proValorM} />} />
-			<Route path='/select-plan/year' element={<SelectPlanTerm arcadeValue={data.arcadeValorY} advancedValue={data.advanceValorY} proValue={data.proValorY} promotion={data.promotion} />} />
-		</Route>
-		<Route path='/add-ons' element={<AddOns />} />
-		<Route path='/summary' element={<Summary />} />
-		<Route path='/summary/complete' element={<Complete />} />
-	</Route>
-));
-
 function App() {
+	const [plan, setPlan] = useState("")
+	const [deadlinePayment, setDeadlinePayment] = useState("")
+	const [price, setPrice] = useState("")
+
+	console.log(plan)
+	console.log(deadlinePayment)
+	console.log(price)
+
 	return (
 		<>
-			<RouterProvider router={router} />
+			<RouterProvider router={
+				createBrowserRouter(createRoutesFromElements(
+					<Route path='/' element={<Root />}>
+						<Route path='/' element={<YourInfo />} />
+						<Route path='/your-info' element={<YourInfo />} />
+						<Route path='/select-plan' element={<SelectPlan />} >
+							<Route path='/select-plan' element={<SelectPlanTerm
+								plan={plan}
+								setPlan={setPlan}
+								setDeadlinePayment={setDeadlinePayment}
+								setPrice={setPrice}
+								arcadeValue={data.arcadeValorM}
+								advancedValue={data.advanceValorM}
+								proValue={data.proValorM}
+							/>} />
+							<Route path='/select-plan/monthly' element={<SelectPlanTerm
+								plan={plan}
+								setPlan={setPlan}
+								setDeadlinePayment={setDeadlinePayment}
+								setPrice={setPrice}
+								arcadeValue={data.arcadeValorM}
+								advancedValue={data.advanceValorM}
+								proValue={data.proValorM}
+							/>} />
+							<Route path='/select-plan/year' element={<SelectPlanTerm
+								plan={plan}
+								setPlan={setPlan}
+								setDeadlinePayment={setDeadlinePayment}
+								setPrice={setPrice}
+								arcadeValue={data.arcadeValorY}
+								advancedValue={data.advanceValorY}
+								proValue={data.proValorY}
+								promotion={data.promotion}
+							/>} />
+						</Route>
+						<Route path='/add-ons' element={<AddOns />} />
+						<Route path='/summary' element={<Summary
+							plan={plan}
+							deadlinePayment={deadlinePayment}
+							price={price}
+						/>} />
+						<Route path='/summary/complete' element={<Complete />} />
+					</Route>
+				))
+			} />
 		</>
 	);
 }

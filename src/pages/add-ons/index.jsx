@@ -25,8 +25,6 @@ function AddOns() {
         }
     }
 
-    console.log(addOns)
-
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="add-ons">
             <div>

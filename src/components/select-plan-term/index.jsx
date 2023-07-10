@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -6,9 +5,7 @@ import iconArcade from '../../assets/images/icon-arcade.svg';
 import iconAdvanced from '../../assets/images/icon-advanced.svg';
 import iconPro from '../../assets/images/icon-pro.svg';
 
-function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion }) {
-    const [plan, setPlan] = useState('')
-
+function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion, plan, setPlan, setDeadlinePayment, setPrice }) {
     const navigate = useNavigate();
 
     const goBack = () => {
@@ -23,6 +20,12 @@ function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion }) {
         }
     }
 
+    const handleChange = (e) => {
+        setPlan(e.target.id)
+        setDeadlinePayment(e.target.value)
+        setPrice(e.target.attributes[4].value)
+    }
+
     return (
         <form onSubmit={handleSubmit} className='d-md-flex flex-md-column justify-content-md-between'>
             <div className='d-md-flex justify-content-md-between'>
@@ -31,8 +34,9 @@ function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion }) {
                     id='arcade'
                     type="radio"
                     className='d-none'
-                    value="arcade"
-                    onChange={(e) => setPlan(e.target.value)}
+                    value={arcadeValue == "$9/mo" ? "monthly" : "year"}
+                    data-price={arcadeValue == "$9/mo" ? 9 : 90}
+                    onChange={handleChange}
                 />
                 <label htmlFor="arcade" className="card flex-row p-3 border-custom flex-md-column text-left width-custom">
                     <img src={iconArcade} className='mb-md-4' width='42' alt="Icon arcade" />
@@ -47,8 +51,9 @@ function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion }) {
                     id='advanced'
                     type="radio"
                     className='d-none'
-                    value="advanced"
-                    onChange={(e) => setPlan(e.target.value)}
+                    value={arcadeValue == "$9/mo" ? "monthly" : "year"}
+                    data-price={arcadeValue == "$9/mo" ? 12 : 120}
+                    onChange={handleChange}
                 />
                 <label htmlFor="advanced" className="card flex-row p-3 border-custom flex-md-column text-left width-custom">
                     <img src={iconAdvanced} className='mb-md-4' width='42' alt="Icon advanced" />
@@ -63,8 +68,9 @@ function SelectPlanTerm({ arcadeValue, advancedValue, proValue, promotion }) {
                     id='pro'
                     type="radio"
                     className='d-none'
-                    value="pro"
-                    onChange={(e) => setPlan(e.target.value)}
+                    value={arcadeValue == "$9/mo" ? "monthly" : "year"}
+                    data-price={arcadeValue == "$9/mo" ? 15 : 150}
+                    onChange={handleChange}
                 />
                 <label htmlFor="pro" className="card flex-row p-3 border-custom flex-md-column text-left width-custom">
                     <img src={iconPro} className='mb-md-4' width='42' alt="Icon pro" />
@@ -95,7 +101,11 @@ SelectPlanTerm.propTypes = {
     arcadeValue: PropTypes.string,
     advancedValue: PropTypes.string,
     proValue: PropTypes.string,
-    promotion: PropTypes.string
+    promotion: PropTypes.string,
+    plan: PropTypes.string,
+    setPlan: PropTypes.any,
+    setDeadlinePayment: PropTypes.any,
+    setPrice: PropTypes.any,
 }
 
 export default SelectPlanTerm

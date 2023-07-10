@@ -1,7 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types';
+
 import './index.scss'
 
-function Summary() {
+function Summary({ plan, deadlinePayment, price }) {
 
     const navigate = useNavigate();
 
@@ -22,10 +24,10 @@ function Summary() {
             <div className='bg-modality-color p-3 mt-4 rounded'>
                 <div className='d-flex justify-content-between align-items-center border-bottom pb-2'>
                     <div>
-                        <h6 className='m-0 font-tertiary-color'>Arcade (Monthly)</h6>
+                        <h6 className='m-0 font-tertiary-color'>{plan} ({deadlinePayment})</h6>
                         <Link to="/select-plan" className='font-primary-color'>Change</Link>
                     </div>
-                    <span className='font-tertiary-color font-weight-bold'>$9/mo</span>
+                    <span className='font-tertiary-color font-weight-bold'>{deadlinePayment == "monthly" ? `$${price}/mo` : `$${price}/yr`}</span>
                 </div>
                 <div className='pt-3'>
                     <div className='d-flex justify-content-between'>
@@ -48,6 +50,12 @@ function Summary() {
             </div>
         </section >
     )
+}
+
+Summary.propTypes = {
+    plan: PropTypes.string,
+    deadlinePayment: PropTypes.string,
+    price: PropTypes.string,
 }
 
 export default Summary
