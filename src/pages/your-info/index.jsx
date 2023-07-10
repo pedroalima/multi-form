@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 
-const schema = object ({
+const schema = object({
     name: string().required("This field is required"),
     email: string().required("This field is required"),
     phone: string().required("This field is required"),
@@ -16,9 +16,8 @@ function YourInfo() {
     const {
         register,
         handleSubmit: onSubmit,
-        watch,
         formState: { errors },
-    } = useForm({resolver: yupResolver(schema)})
+    } = useForm({ resolver: yupResolver(schema) })
 
     const navigate = useNavigate();
 

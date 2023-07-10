@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './index.scss'
 
-import iconArcade from '../../assets/images/icon-arcade.svg'
-import iconAdvanced from '../../assets/images/icon-advanced.svg'
-import iconPro from '../../assets/images/icon-pro.svg'
+import iconArcade from '../../assets/images/icon-arcade.svg';
+import iconAdvanced from '../../assets/images/icon-advanced.svg';
+import iconPro from '../../assets/images/icon-pro.svg';
 
-function SelectPlan() {
+function SelectPlan({ arcadeValue, advancedValue, proValue }) {
     const [plan, setPlan] = useState('')
 
     const navigate = useNavigate();
@@ -23,8 +24,6 @@ function SelectPlan() {
             navigate("/add-ons")
         }
     }
-
-    console.log(plan)
 
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="select-plan">
@@ -46,7 +45,7 @@ function SelectPlan() {
                         <img src={iconArcade} className='mb-md-5' width='42' alt="Icon arcade" />
                         <div className="card-body p-0 ml-3 ml-md-0">
                             <h6 className="card-title m-0 font-tertiary-color">Arcade</h6>
-                            <p className="card-text font-primary-color">$9/mo</p>
+                            <p className="card-text font-primary-color">{arcadeValue}</p>
                         </div>
                     </label>
                     <input
@@ -61,7 +60,7 @@ function SelectPlan() {
                         <img src={iconAdvanced} className='mb-md-5' width='42' alt="Icon advanced" />
                         <div className="card-body p-0 ml-3 ml-md-0">
                             <h6 className="card-title m-0 font-tertiary-color">Advanced</h6>
-                            <p className="card-text font-primary-color">$12/mo</p>
+                            <p className="card-text font-primary-color">{advancedValue}</p>
                         </div>
                     </label>
                     <input
@@ -76,16 +75,16 @@ function SelectPlan() {
                         <img src={iconPro} className='mb-md-5' width='42' alt="Icon pro" />
                         <div className="card-body p-0 ml-3 ml-md-0">
                             <h6 className="card-title m-0 font-tertiary-color">Pro</h6>
-                            <p className="card-text font-primary-color">$14/mo</p>
+                            <p className="card-text font-primary-color">{proValue}</p>
                         </div>
                     </label>
                 </div>
                 <div className='bg-modality-color d-flex justify-content-around align-items-center border-custom p-3 my-md-2'>
                     <h6 className='m-0 font-tertiary-color'>Monthly</h6>
-                    <div className='bg-button-color icon'>
+                    <Link to="/select-plan/year" className='bg-button-color icon'>
                         <input type="checkbox" id="modality" className='d-none' />
                         <label htmlFor='modality' className='icon-ball bg-white'></label>
-                    </div>
+                    </Link>
                     <h6 className='m-0 font-primary-color'>Yearly</h6>
                 </div>
                 <div className="d-flex justify-content-between p-3 px-md-0 position-custom">
@@ -95,6 +94,12 @@ function SelectPlan() {
             </form>
         </section >
     )
+}
+
+SelectPlan.propTypes = {
+    arcadeValue: PropTypes.string,
+    advancedValue: PropTypes.string,
+    proValue: PropTypes.string
 }
 
 export default SelectPlan
