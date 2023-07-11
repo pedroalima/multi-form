@@ -1,21 +1,20 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 import './index.scss'
 
 import { BsCheckSquareFill } from 'react-icons/bs';
 
-function AddOns() {
+function AddOns({ addOns, setAddOns }) {
     const navigate = useNavigate();
 
     const goBack = () => {
         navigate(-1)
     }
 
-    const [addOns, setAddOns] = useState(null)
     const handleChange = ({ target }) => {
-        const { id, value } = target;
-        setAddOns(prev => ({ ...prev, [id]: value }))
+        const { id, name, value } = target;
+        setAddOns(prev => ([...prev, [id, name, value]]))
     }
 
     const handleSubmit = (e) => {
@@ -24,6 +23,8 @@ function AddOns() {
             navigate("/summary")
         }
     }
+
+    console.log(addOns)
 
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="add-ons">
@@ -34,9 +35,10 @@ function AddOns() {
             <form onSubmit={handleSubmit} className='pt-md-2 justify-content-md-between'>
                 <input
                     id='service'
-                    type="checkbox"
+                    name='Online service'
+                    type='checkbox'
                     className='d-none'
-                    value="Online service"
+                    value='1'
                     onChange={handleChange}
                 />
                 <label htmlFor="service" className="card flex-row align-items-center p-3 border-custom text-left">
@@ -49,9 +51,10 @@ function AddOns() {
                 </label>
                 <input
                     id='storage'
-                    type="checkbox"
+                    name='Larger storage'
+                    type='checkbox'
                     className='d-none'
-                    value="Larger storage"
+                    value='2'
                     onChange={handleChange}
                 />
                 <label htmlFor="storage" className="card flex-row align-items-center p-3 border-custom flex-md-row text-left">
@@ -64,9 +67,10 @@ function AddOns() {
                 </label>
                 <input
                     id='profile'
-                    type="checkbox"
+                    name='Customizable profile'
+                    type='checkbox'
                     className='d-none'
-                    value="Customizable profile"
+                    value='2'
                     onChange={handleChange}
                 />
                 <label htmlFor="profile" className="card flex-row align-items-center p-3 border-custom flex-md-row text-left">
@@ -84,6 +88,11 @@ function AddOns() {
             </form>
         </section>
     )
+}
+
+AddOns.propTypes = {
+    addOns: PropTypes.array,
+    setAddOns: PropTypes.any
 }
 
 export default AddOns

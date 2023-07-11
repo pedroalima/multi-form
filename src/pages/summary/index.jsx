@@ -1,9 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 import './index.scss'
 
-function Summary({ plan, deadlinePayment, price }) {
+function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns }) {
 
     const navigate = useNavigate();
 
@@ -15,6 +15,12 @@ function Summary({ plan, deadlinePayment, price }) {
         navigate("/summary/complete")
     }
 
+    const changePlansAndAddOns = () => {
+        navigate("/select-plan")
+        setPlan("")
+        setAddOns([])
+    }
+
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="summary">
             <div className=''>
@@ -22,23 +28,21 @@ function Summary({ plan, deadlinePayment, price }) {
                 <p className='font-primary-color'>Double-check everything looks OK before confirming.</p>
             </div>
             <div className='bg-modality-color p-3 mt-4 rounded'>
-                <div className='d-flex justify-content-between align-items-center border-bottom pb-2'>
+                <div className='d-flex justify-content-between align-items-center border-bottom pb-2 mb-3'>
                     <div>
                         <h6 className='m-0 font-tertiary-color'>{plan} ({deadlinePayment})</h6>
-                        <Link to="/select-plan" className='font-primary-color'>Change</Link>
+                        <button onClick={changePlansAndAddOns} className='font-primary-color'>Change</button>
                     </div>
                     <span className='font-tertiary-color font-weight-bold'>{deadlinePayment == "monthly" ? `$${price}/mo` : `$${price}/yr`}</span>
                 </div>
-                <div className='pt-3'>
-                    <div className='d-flex justify-content-between'>
-                        <p className='mb-2 font-primary-color'>Online service</p>
-                        <span className='mb-2 font-tertiary-color'>+$1/mo</span>
+                {addOns && addOns.map((addOn) => (
+                    <div key={addOn[0]}>
+                        <div className='d-flex justify-content-between py-1'>
+                            <p className='font-primary-color'>{addOn[1]}</p>
+                            <span className='font-tertiary-color'>+${addOn[2]}/mo</span>
+                        </div>
                     </div>
-                    <div className='d-flex justify-content-between'>
-                        <p className='font-primary-color'>Larger storage</p>
-                        <span className='font-tertiary-color'>+$2/mo</span>
-                    </div>
-                </div>
+                ))}
             </div>
             <div className='d-flex justify-content-between p-3'>
                 <p className='font-primary-color'>Total (per month/year)</p>
@@ -54,8 +58,11 @@ function Summary({ plan, deadlinePayment, price }) {
 
 Summary.propTypes = {
     plan: PropTypes.string,
+    setPlan: PropTypes.any,
     deadlinePayment: PropTypes.string,
     price: PropTypes.string,
+    addOns: PropTypes.array,
+    setAddOns: PropTypes.any
 }
 
 export default Summary

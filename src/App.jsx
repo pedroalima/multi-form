@@ -22,6 +22,8 @@ function App() {
 	const [deadlinePayment, setDeadlinePayment] = useState("")
 	const [price, setPrice] = useState("")
 
+	const [addOns, setAddOns] = useState([])
+
 	console.log(plan)
 	console.log(deadlinePayment)
 	console.log(price)
@@ -63,11 +65,14 @@ function App() {
 								promotion={data.promotion}
 							/>} />
 						</Route>
-						<Route path='/add-ons' element={<AddOns />} />
+						<Route path='/add-ons' element={<AddOns addOns={addOns} setAddOns={setAddOns} />} />
 						<Route path='/summary' element={<Summary
 							plan={plan}
+							setPlan={setPlan}
 							deadlinePayment={deadlinePayment}
 							price={price}
+							addOns={addOns}
+							setAddOns={setAddOns}
 						/>} />
 						<Route path='/summary/complete' element={<Complete />} />
 					</Route>
