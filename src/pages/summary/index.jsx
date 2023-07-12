@@ -39,7 +39,7 @@ function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns }) {
                     <div key={addOn[0]}>
                         <div className='d-flex justify-content-between py-1'>
                             <p className='font-primary-color'>{addOn[1]}</p>
-                            <span className='font-tertiary-color'>+${addOn[2]}/mo</span>
+                            <span className='font-tertiary-color'>{deadlinePayment == "monthly" ? `+$${addOn[2]}/mo` : `+$${addOn[2]}/yr`}</span>
                         </div>
                     </div>
                 ))}

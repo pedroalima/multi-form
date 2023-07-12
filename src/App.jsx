@@ -3,8 +3,9 @@ import { useState } from 'react';
 import Root from './components/root';
 import YourInfo from './pages/your-info';
 import SelectPlan from './pages/select-plan';
-import SelectPlanTerm from './components/select-plan-term';
-import AddOns from './pages/add-ons';
+import SelectPlanDeadline from './components/select-plan-deadline';
+import AddOnsMonthly from './pages/add-ons-monthly';
+import AddOnsYear from './pages/add-ons-year';
 import Summary from './pages/summary';
 import Complete from './pages/complete';
 
@@ -36,27 +37,30 @@ function App() {
 						<Route path='/' element={<YourInfo />} />
 						<Route path='/your-info' element={<YourInfo />} />
 						<Route path='/select-plan' element={<SelectPlan />} >
-							<Route path='/select-plan' element={<SelectPlanTerm
+							<Route path='/select-plan' element={<SelectPlanDeadline
 								plan={plan}
 								setPlan={setPlan}
+								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
 								arcadeValue={data.arcadeValorM}
 								advancedValue={data.advanceValorM}
 								proValue={data.proValorM}
 							/>} />
-							<Route path='/select-plan/monthly' element={<SelectPlanTerm
+							<Route path='/select-plan/monthly' element={<SelectPlanDeadline
 								plan={plan}
 								setPlan={setPlan}
+								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
 								arcadeValue={data.arcadeValorM}
 								advancedValue={data.advanceValorM}
 								proValue={data.proValorM}
 							/>} />
-							<Route path='/select-plan/year' element={<SelectPlanTerm
+							<Route path='/select-plan/year' element={<SelectPlanDeadline
 								plan={plan}
 								setPlan={setPlan}
+								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
 								arcadeValue={data.arcadeValorY}
@@ -65,7 +69,8 @@ function App() {
 								promotion={data.promotion}
 							/>} />
 						</Route>
-						<Route path='/add-ons' element={<AddOns addOns={addOns} setAddOns={setAddOns} />} />
+						<Route path='/add-ons/monthly' element={<AddOnsMonthly addOns={addOns} setAddOns={setAddOns} />} />
+						<Route path='/add-ons/year' element={<AddOnsYear addOns={addOns} setAddOns={setAddOns} />} />
 						<Route path='/summary' element={<Summary
 							plan={plan}
 							setPlan={setPlan}
