@@ -5,7 +5,7 @@ import iconArcade from '../../assets/images/icon-arcade.svg';
 import iconAdvanced from '../../assets/images/icon-advanced.svg';
 import iconPro from '../../assets/images/icon-pro.svg';
 
-function SelectPlanDeadline({ arcadeValue, advancedValue, proValue, promotion, plan, setPlan, deadlinePayment, setDeadlinePayment, setPrice }) {
+function SelectPlanDeadline({ arcadeValue, advancedValue, proValue, promotion, plan, setPlan, deadlinePayment, setDeadlinePayment, setPrice, setSum }) {
     const navigate = useNavigate();
 
     const goBack = () => {
@@ -29,6 +29,7 @@ function SelectPlanDeadline({ arcadeValue, advancedValue, proValue, promotion, p
         setPlan(e.target.id)
         setDeadlinePayment(e.target.value)
         setPrice(e.target.attributes[4].value)
+        setSum(Number(e.target.attributes[4].value))
     }
 
     return (
@@ -112,6 +113,7 @@ SelectPlanDeadline.propTypes = {
     deadlinePayment: PropTypes.string,
     setDeadlinePayment: PropTypes.any,
     setPrice: PropTypes.any,
+    setSum: PropTypes.any
 }
 
 export default SelectPlanDeadline

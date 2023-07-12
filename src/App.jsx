@@ -19,15 +19,19 @@ import {
 } from 'react-router-dom';
 
 function App() {
-	const [plan, setPlan] = useState("")
-	const [deadlinePayment, setDeadlinePayment] = useState("")
-	const [price, setPrice] = useState("")
+	const [plan, setPlan] = useState("");
+	const [deadlinePayment, setDeadlinePayment] = useState("");
+	const [price, setPrice] = useState("");
+	const [addOns, setAddOns] = useState([]);
 
-	const [addOns, setAddOns] = useState([])
+	const [sum, setSum] = useState(0);
+	const [sumAddOns, setSumAddOns] = useState(0);
 
-	console.log(plan)
-	console.log(deadlinePayment)
-	console.log(price)
+	// console.log(plan)
+	// console.log(deadlinePayment)
+	// console.log(price)
+	console.log(sum)
+	console.log(sumAddOns)
 
 	return (
 		<>
@@ -36,6 +40,7 @@ function App() {
 					<Route path='/' element={<Root />}>
 						<Route path='/' element={<YourInfo />} />
 						<Route path='/your-info' element={<YourInfo />} />
+
 						<Route path='/select-plan' element={<SelectPlan />} >
 							<Route path='/select-plan' element={<SelectPlanDeadline
 								plan={plan}
@@ -43,6 +48,7 @@ function App() {
 								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
+								setSum={setSum}
 								arcadeValue={data.arcadeValorM}
 								advancedValue={data.advanceValorM}
 								proValue={data.proValorM}
@@ -53,6 +59,7 @@ function App() {
 								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
+								setSum={setSum}
 								arcadeValue={data.arcadeValorM}
 								advancedValue={data.advanceValorM}
 								proValue={data.proValorM}
@@ -63,14 +70,25 @@ function App() {
 								deadlinePayment={deadlinePayment}
 								setDeadlinePayment={setDeadlinePayment}
 								setPrice={setPrice}
+								setSum={setSum}
 								arcadeValue={data.arcadeValorY}
 								advancedValue={data.advanceValorY}
 								proValue={data.proValorY}
 								promotion={data.promotion}
 							/>} />
 						</Route>
-						<Route path='/add-ons/monthly' element={<AddOnsMonthly addOns={addOns} setAddOns={setAddOns} />} />
-						<Route path='/add-ons/year' element={<AddOnsYear addOns={addOns} setAddOns={setAddOns} />} />
+
+						<Route path='/add-ons/monthly' element={<AddOnsMonthly
+							addOns={addOns}
+							setAddOns={setAddOns}
+							setSumAddOns={setSumAddOns}
+						/>} />
+						<Route path='/add-ons/year' element={<AddOnsYear
+							addOns={addOns}
+							setAddOns={setAddOns}
+							setSumAddOns={setSumAddOns}
+						/>} />
+
 						<Route path='/summary' element={<Summary
 							plan={plan}
 							setPlan={setPlan}
@@ -78,6 +96,10 @@ function App() {
 							price={price}
 							addOns={addOns}
 							setAddOns={setAddOns}
+							sum={sum}
+							setSum={setSum}
+							sumAddOns={sumAddOns}
+							setSumAddOns={setSumAddOns}
 						/>} />
 						<Route path='/summary/complete' element={<Complete />} />
 					</Route>

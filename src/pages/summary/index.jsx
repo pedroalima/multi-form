@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 import './index.scss'
 
-function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns }) {
+function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns, sum, setSum, sumAddOns, setSumAddOns }) {
 
     const navigate = useNavigate();
 
     const goBack = () => {
         navigate(-1)
+        setAddOns([])
+        setSumAddOns(0)
     }
 
     const goForward = () => {
@@ -19,7 +21,11 @@ function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns }) {
         navigate("/select-plan")
         setPlan("")
         setAddOns([])
+        setSumAddOns(0)
+        setSum(0)
     }
+
+    const total = sum + sumAddOns;
 
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="summary">
@@ -45,10 +51,10 @@ function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns }) {
                 ))}
             </div>
             <div className='d-flex justify-content-between p-3'>
-                <p className='font-primary-color'>Total (per month/year)</p>
-                <h6 className='font-tertiary-color'>+12/mo</h6>
+                <p className='font-primary-color'>{deadlinePayment == "monthly" ? "Total (per month)" : "Total (per year)"}</p>
+                <h6 className='font-tertiary-color'>{deadlinePayment == "monthly" ? `$${total}/mo` : `$${total}/yr`}</h6>
             </div>
-            <div className="d-flex justify-content-between p-3 mt-4 px-md-0 position-custom">
+            <div className="d-flex justify-content-between p-3 p-md-0 mt-4 mt-md-0 px-md-0 position-custom">
                 <button onClick={goBack} className='border-0 bg-white font-primary-color weight-custom'>Go Back</button>
                 <button onClick={goForward} className='border-0 rounded p-2 px-md-4 bg-button-color text-white weight-custom'>Confirm</button>
             </div>
@@ -62,7 +68,11 @@ Summary.propTypes = {
     deadlinePayment: PropTypes.string,
     price: PropTypes.string,
     addOns: PropTypes.array,
-    setAddOns: PropTypes.any
+    setAddOns: PropTypes.any,
+    sum: PropTypes.number,
+    setSum: PropTypes.any,
+    sumAddOns: PropTypes.number,
+    setSumAddOns: PropTypes.any
 }
 
 export default Summary

@@ -5,16 +5,19 @@ import './index.scss'
 
 import { BsCheckSquareFill } from 'react-icons/bs';
 
-function AddOnsYear({ addOns, setAddOns }) {
+function AddOnsYear({ addOns, setAddOns, setSumAddOns }) {
     const navigate = useNavigate();
 
     const goBack = () => {
         navigate(-1)
+        setAddOns([])
+        setSumAddOns(0)
     }
 
     const handleChange = ({ target }) => {
         const { id, name, value } = target;
         setAddOns(prev => ([...prev, [id, name, value]]))
+        setSumAddOns((prev) => prev + Number(value))
     }
 
     const handleSubmit = (e) => {
@@ -23,8 +26,6 @@ function AddOnsYear({ addOns, setAddOns }) {
             navigate("/summary")
         }
     }
-
-    console.log(addOns)
 
     return (
         <section className="bg-white d-flex flex-column justify-content-between" id="add-ons">
@@ -92,7 +93,8 @@ function AddOnsYear({ addOns, setAddOns }) {
 
 AddOnsYear.propTypes = {
     addOns: PropTypes.array,
-    setAddOns: PropTypes.any
+    setAddOns: PropTypes.any,
+    setSumAddOns: PropTypes.any
 }
 
 export default AddOnsYear
