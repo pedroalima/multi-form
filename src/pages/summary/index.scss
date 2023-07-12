@@ -34,4 +34,24 @@
         font-size: 15px;
         margin: 0;
     }
+
+    .total-color {
+        color: rgb(71, 61, 255);
+    }
+
+    .button-custom {
+        background: none;
+        border: none;
+        text-decoration: underline;
+
+        &:hover {
+            color: rgb(71, 61, 255);
+            text-decoration: underline;
+        }
+
+        @media screen and (min-width: 1024px) {
+            text-decoration: none;
+        }
+
+    }
 }

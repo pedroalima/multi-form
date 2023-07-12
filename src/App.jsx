@@ -27,12 +27,6 @@ function App() {
 	const [sum, setSum] = useState(0);
 	const [sumAddOns, setSumAddOns] = useState(0);
 
-	// console.log(plan)
-	// console.log(deadlinePayment)
-	// console.log(price)
-	console.log(sum)
-	console.log(sumAddOns)
-
 	return (
 		<>
 			<RouterProvider router={

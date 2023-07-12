@@ -36,8 +36,8 @@ function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns, sum
             <div className='bg-modality-color p-3 mt-4 rounded'>
                 <div className='d-flex justify-content-between align-items-center border-bottom pb-2 mb-3'>
                     <div>
-                        <h6 className='m-0 font-tertiary-color'>{plan} ({deadlinePayment})</h6>
-                        <button onClick={changePlansAndAddOns} className='font-primary-color'>Change</button>
+                        <h6 className='m-0 font-tertiary-color text-capitalize'>{plan} ({deadlinePayment})</h6>
+                        <button onClick={changePlansAndAddOns} className='font-primary-color button-custom'>Change</button>
                     </div>
                     <span className='font-tertiary-color font-weight-bold'>{deadlinePayment == "monthly" ? `$${price}/mo` : `$${price}/yr`}</span>
                 </div>
@@ -52,7 +52,7 @@ function Summary({ plan, setPlan, deadlinePayment, price, addOns, setAddOns, sum
             </div>
             <div className='d-flex justify-content-between p-3'>
                 <p className='font-primary-color'>{deadlinePayment == "monthly" ? "Total (per month)" : "Total (per year)"}</p>
-                <h6 className='font-tertiary-color'>{deadlinePayment == "monthly" ? `$${total}/mo` : `$${total}/yr`}</h6>
+                <h6 className='font-tertiary-color font-weight-bold total-color'>{deadlinePayment == "monthly" ? `$${total}/mo` : `$${total}/yr`}</h6>
             </div>
             <div className="d-flex justify-content-between p-3 p-md-0 mt-4 mt-md-0 px-md-0 position-custom">
                 <button onClick={goBack} className='border-0 bg-white font-primary-color weight-custom'>Go Back</button>
