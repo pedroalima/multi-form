@@ -118,16 +118,6 @@ const schema = object({
 
 Para conferir a versão final é só acessar o link: 💻<https://multi-form-theta.vercel.app/>.
 
-Aqui está uma prévia em vídeo
-
-<video src="./public/2023-07-13%2016-32-33.mp4" width="1080" height="720" controls>
-  Video not supported
-</video>
-
-<video src="./public/preview.mp4" width="1080" height="720" controls>
-  Video not supported
-</video>
-
 </br>
 
 ## Autor
