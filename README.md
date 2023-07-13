@@ -120,7 +120,11 @@ Para conferir a versão final é só acessar o link: 💻<https://multi-form-the
 
 Aqui está uma prévia em vídeo
 
-<video src="./public/preview.mp4" width="720" height="720" controls>
+<video src="./public/2023-07-13%2016-32-33.mp4" width="1080" height="720" controls>
+  Video not supported
+</video>
+
+<video src="./public/preview.mp4" width="1080" height="720" controls>
   Video not supported
 </video>
 
